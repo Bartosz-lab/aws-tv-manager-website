@@ -1,0 +1,12 @@
+<div *ngIf="tv">
+    <h2>{{tv.name | uppercase}} Details</h2>
+    <div>id: {{tv.id}}</div>
+    <div>
+      <label for="tv-name">TV name: </label>
+      <input id="tv-name" [(ngModel)]="tv.name" placeholder="name">
+    </div>
+    <div>
+    <label for="tv-ip">IP Address: </label>
+    <input id="tv-ip" [(ngModel)]="tv.ip" placeholder="10.0.0.1">
+    </div>
+</div>
