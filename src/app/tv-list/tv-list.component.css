@@ -1,68 +1,63 @@
 .tv-list {
-  margin: 0 0 2em 0;
+  margin-left: auto;
+  margin-right: auto;
   list-style-type: none;
   padding: 0;
-  width: 15em;
+  width: fit-content;
 }
 
-.tv-list li {
-  display: flex;
-}
-
-.tv-list button {
-  flex: 1;
-  cursor: pointer;
-  position: relative;
-  left: 0;
+.tv-list a {
+  color: #333;
+  text-decoration: none;
   background-color: #EEE;
   margin: .5em;
-  padding: 0;
+  padding: .3em 0;
+  height: 3.6em;
   border-radius: 4px;
-  display: flex;
-  align-items: stretch;
-  height: 1.8em;
+  display: block;
+  width: 100%;
 }
 
-.tv-list button:hover {
+.tv-list a:hover {
   color: #2c3a41;
   background-color: #e6e6e6;
-  left: .1em;
 }
 
-.tv-list button:active {
+.tv-list a:active {
   background-color: #525252;
   color: #fafafa;
 }
 
-.tv-list button.selected {
-  background-color: black;
-  color: white;
-}
-
-.tv-list button.selected:hover {
-  background-color: #505050;
-  color: white;
-}
-
-.tv-list button.selected:active {
-  background-color: black;
-  color: white;
-}
-
-.tv-list .badge {
+.tv-list .id {
   display: inline-block;
   font-size: small;
   color: white;
   padding: 0.8em 0.7em 0 0.7em;
   background-color: #405061;
   line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  min-width: 16px;
+  text-align: center;
   margin-right: .8em;
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 0;
+}
+
+.tv-list .red {
+  background-color: #9c1d06;
+}
+
+.tv-list .green {
+  background-color: #069c0d;
 }
 
 .tv-list .name {
-  align-self: center;
+  display: inline-block;
 }
+
 .tv-list .ip {
-  align-self: center;
+  display: block;
+  padding-left: 0.8em;
 }

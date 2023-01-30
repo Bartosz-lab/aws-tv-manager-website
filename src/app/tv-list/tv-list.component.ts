@@ -20,8 +20,4 @@ export class TvListComponent {
   }
 
   tvs: Tv[] = [];
-  selectedTv?: Tv;
-  onSelect(tv: Tv): void {
-    this.selectedTv = tv;
-  }
 }
