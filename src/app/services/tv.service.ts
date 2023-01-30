@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import { Tv } from './tv';
-import { TVS } from './mock-tvs';
+import { Tv } from '../models/tv';
+import { TVS } from '../mock/mock-tvs';
 
 @Injectable({
   providedIn: 'root'

@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { Tv } from '../tv';
+import { Tv } from '../models/tv';
 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { TvService } from '../tv.service';
+import { TvService } from '../services/tv.service';
 
 @Component({
   selector: 'app-tv-detail',

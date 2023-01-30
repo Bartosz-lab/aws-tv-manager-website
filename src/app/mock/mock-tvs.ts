@@ -1,4 +1,4 @@
-import { Tv } from './tv';
+import { Tv } from '../models/tv';
 
 export const TVS: Tv[] = [
     { id: 1, name: 'tv 1', ip: '10.213.214.1', avaiable: false},
