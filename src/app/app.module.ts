@@ -12,6 +12,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { LocationListComponent } from './location-list/location-list.component';
+import { LocationDetailComponent } from './location-detail/location-detail.component';
+import { LocationFormComponent } from './location-form/location-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { LocationListComponent } from './location-list/location-list.component';
     UserDetailComponent,
     UserFormComponent,
     UserAddComponent,
-    LocationListComponent
+    LocationListComponent,
+    LocationDetailComponent,
+    LocationFormComponent
   ],
   imports: [
     BrowserModule,

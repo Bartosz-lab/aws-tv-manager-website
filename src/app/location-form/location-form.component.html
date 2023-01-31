@@ -1,0 +1,13 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" formControlName="address" required>
+        <div [hidden]="address && (address.valid || address.pristine)" class="alert alert-danger">
+            Address is required
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="emitGoBack()">Go back</button>
+
+    <button type="submit" class="btn btn-success" [disabled]="!editForm.valid">Save</button>
+</form>

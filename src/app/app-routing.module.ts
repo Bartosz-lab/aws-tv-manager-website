@@ -6,7 +6,9 @@ import { UserListComponent } from './user-list/user-list.component';
 import { TvDetailComponent } from './tv-detail/tv-detail.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserAddComponent } from './user-add/user-add.component';
+
 import { LocationListComponent } from './location-list/location-list.component';
+import { LocationDetailComponent } from './location-detail/location-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/tvs', pathMatch: 'full' },
@@ -17,6 +19,7 @@ const routes: Routes = [
   { path: 'user/:id', component: UserDetailComponent },
 
   { path: 'locations', component: LocationListComponent },
+  { path: 'location/:id', component: LocationDetailComponent },
 ];
 
 @NgModule({

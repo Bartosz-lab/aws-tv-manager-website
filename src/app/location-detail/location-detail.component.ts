@@ -3,39 +3,39 @@ import { Component, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { User } from '../models/user';
-import { UserService } from '../services/user.service';
+import { Location as Loc } from '../models/location';
+import { LocationService } from '../services/location.service';
 
 @Component({
-  selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css']
+  selector: 'app-location-detail',
+  templateUrl: './location-detail.component.html',
+  styleUrls: ['./location-detail.component.css']
 })
-export class UserDetailComponent {
+export class LocationDetailComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService,
+    private locationService: LocationService,
     private location: Location,
   ) { }
 
-  @Input() user?: User;
+  @Input() loc?: Loc;
   submitted = true;
 
 
   ngOnInit(): void {
-    this.getUser();
+    this.getLocation();
   }
   
-  getUser(): void {
+  getLocation(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.userService.getUser(id)
-      .subscribe(user => this.user = user);
+    this.locationService.getLocation(id)
+      .subscribe(user => this.loc = user);
   }
 
   onSaved(id: number): void {
-    if (id === this.user?.id) {
-      this.getUser();
+    if (id === this.loc?.id) {
+      this.getLocation();
     } else {
       // Eror code
     }
@@ -47,8 +47,8 @@ export class UserDetailComponent {
   }
 
   onDelete(): void {
-    if (this.user) {
-      this.userService.deleteUser(this.user.id)
+    if (this.loc) {
+      this.locationService.deleteLocation(this.loc.id)
         .subscribe(res => {
           if (res) {
             this.router.navigateByUrl('/users')
