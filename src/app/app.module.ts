@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { TvListComponent } from './tv-list/tv-list.component';
 import { TvDetailComponent } from './tv-detail/tv-detail.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TvListComponent,
     TvDetailComponent,
-    UserListComponent
+    UserListComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
