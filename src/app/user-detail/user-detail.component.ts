@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { User } from '../models/user';
@@ -14,11 +14,17 @@ import { UserService } from '../services/user.service';
 export class UserDetailComponent {
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private userService: UserService,
-    private location: Location
-  ) {}
+    private location: Location,
+  ) {
+    this.route.params.subscribe(_ => {
+      this.getUser();
+  });
+  }
 
   @Input() user?: User;
+
 
   ngOnInit(): void {
     this.getUser();
@@ -30,15 +36,31 @@ export class UserDetailComponent {
       .subscribe(user => this.user = user);
   }
 
+  onSaved(id: number): void {
+    console.log(id);
+    if (id === this.user?.id) {
+      this.getUser();
+    } else {
+      // Eror code
+    }
+    this.submitted = true;
+  }
+
   goBack(): void {
     this.location.back();
   }
 
-  onSubmit(): void {
-    // this.location.back();
-    this.submitted = true;
+  onDelete(): void {
+    if (this.user) {
+      this.userService.deleteUser(this.user.id)
+        .subscribe(res => {
+          if (res) {
+            this.router.navigateByUrl('/users')
+          }
+        });
+    }
+    // Error Code
   }
-
-  submitted = true
-  phonePattern = "^[0-9]{9}$";  ;
+    
+  submitted = true;
 }

@@ -19,4 +19,15 @@ export class UserService {
     const user = USERS.find(h => h.id === id)!;
     return of(user);
   }
+
+  updateUser(user: User): Observable<number> {
+    // if user id == -1 then add user
+    // else edit user
+
+    return of(user.id); // < 0 errors, > 0 user number
+  }
+
+  deleteUser(id: number): Observable<boolean> {
+    return of(true);
+  }
 }
