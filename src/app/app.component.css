@@ -33,15 +33,16 @@ li a:hover {
     background-color: #42545C;
 }
   
-.dropdown-content {
+.dd-content {
     display: none;
     position: absolute;
 }
   
-.dropdown-content li {
+.dd-content li {
     display: block;
 }
 
-.dropdown:hover .dropdown-content {
+.dd:hover .dd-content {
     display: block;
+    color: red;
 }

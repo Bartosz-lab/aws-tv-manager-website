@@ -10,6 +10,7 @@ import { TvDetailComponent } from './tv-detail/tv-detail.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { UserAddComponent } from './user-add/user-add.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserFormComponent } from './user-form/user-form.component';
     TvDetailComponent,
     UserListComponent,
     UserDetailComponent,
-    UserFormComponent
+    UserFormComponent,
+    UserAddComponent
   ],
   imports: [
     BrowserModule,

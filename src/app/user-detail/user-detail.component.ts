@@ -17,11 +17,7 @@ export class UserDetailComponent {
     private router: Router,
     private userService: UserService,
     private location: Location,
-  ) {
-    this.route.params.subscribe(_ => {
-      this.getUser();
-  });
-  }
+  ) { }
 
   @Input() user?: User;
 
@@ -37,7 +33,6 @@ export class UserDetailComponent {
   }
 
   onSaved(id: number): void {
-    console.log(id);
     if (id === this.user?.id) {
       this.getUser();
     } else {
