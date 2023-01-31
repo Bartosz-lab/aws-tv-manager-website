@@ -1,0 +1,8 @@
+<ul class="location-list">
+    <li *ngFor="let location of locations">
+      <a routerLink="/location/{{location.id}}">
+        <span class="id">{{location.id}}</span>
+        <span class="name">{{location.address}}</span>
+      </a>
+    </li>
+  </ul>
