@@ -1,16 +1,42 @@
-<div *ngIf="tv">
-    <h2>{{tv.name | uppercase}} Details</h2>
-    <div>id: {{tv.id}}</div>
-    <div>
-      <label for="tv-name">TV name: </label>
-      <input id="tv-name" [(ngModel)]="tv.name" placeholder="name">
-    </div>
-    <div>
-    <label for="tv-ip">IP Address: </label>
-    <input id="tv-ip" [(ngModel)]="tv.ip" placeholder="10.0.0.1">
-    </div>
-    <button type="button" (click)="goBack()">Go back</button>
-    <button type="button" (click)="goBack()">Save</button>
+<div class="container" *ngIf="tv">
+  <div [hidden]="submitted">
+      <app-tv-form [tv]="tv" (save)="onSaved($event)" (goback)="submitted=true"></app-tv-form>
+  </div>
+  <div [hidden]="!submitted">
+      <h2>Tv:</h2>
+      <div class="row">
+          <div class="col-xs-3">Name</div>
+          <div class="col-xs-9">{{ tv.name }}</div>
+      </div>
+      <div class="row">
+          <div class="col-xs-3">IP Address</div>
+          <div class="col-xs-9">{{ tv.ip }}</div>
+      </div>
+      <div class="row">
+          <div class="col-xs-3">Config</div>
+          <div class="col-xs-9">{{ tv.config }}</div>
+      </div>
+      <div class="row">
+          <div class="col-xs-3">Supervisor</div>
+          <div class="col-xs-9">{{ tv.supervisor }}</div>
+      </div>
+      <div class="row">
+          <div class="col-xs-3">Location</div>
+          <div class="col-xs-9">{{ tv.location }}</div>
+      </div>
+      <div class="row">
+          <div class="col-xs-3">Avaiable</div>
+          <div class="col-xs-9">{{ tv.avaiable }}</div>
+      </div>
+      <div class="row">
+          <div class="col-xs-3">Last Seen</div>
+          <div class="col-xs-9">{{ tv.lastSeen }}</div>
+      </div>
+      <br>
+      <button type="button" class="btn btn-primary" (click)="goBack()">Go back</button>
+      <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
+      <button type="button" class="btn btn-danger" (click)="onDelete()">Delete</button>
+  </div>
 </div>
 <div *ngIf="!tv" class="error">
   TV Not Found in database

@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { Location } from '../models/location';
 import { LocationService } from '../services/location.service';
@@ -13,7 +12,6 @@ import { LocationService } from '../services/location.service';
 })
 export class LocationFormComponent {
   constructor(
-    private router: Router,
     private locationService: LocationService,
     private fb: FormBuilder
   ) { }

@@ -26,3 +26,6 @@
         <button type="button" class="btn btn-danger" (click)="onDelete()">Delete</button>
     </div>
 </div>
+<div *ngIf="!user" class="error">
+    User Not Found in database
+</div>

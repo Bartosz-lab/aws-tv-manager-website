@@ -14,3 +14,6 @@
         <button type="button" class="btn btn-danger" (click)="onDelete()">Delete</button>
     </div>
 </div>
+<div *ngIf="!loc" class="error">
+    Location Not Found in database
+</div>

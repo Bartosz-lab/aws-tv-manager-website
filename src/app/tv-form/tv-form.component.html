@@ -1,0 +1,42 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name" required>
+        <div [hidden]="name && (name.valid || name.pristine)" class="alert alert-danger">
+            Name is required
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="ip">IP</label>
+        <input type="text" class="form-control" id="ip" formControlName="ip" required>
+        <div [hidden]="ip && (ip.valid || ip.pristine)" class="alert alert-danger">
+            IP is required in correct format
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="config">Config</label>
+        <input type="text" class="form-control" id="config" formControlName="config">
+    </div>
+
+    <div class="form-group">
+        <label for="supervisor">Supervisor</label>
+        <input type="supervisor" class="form-control" id="supervisor" formControlName="supervisor" required>
+        <div [hidden]="supervisor && (supervisor.valid || supervisor.pristine)" class="alert alert-danger">
+            Supervisor must be set
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="location">Location</label>
+        <input type="location" class="form-control" id="location" formControlName="location" required>
+        <div [hidden]="location && (location.valid || location.pristine)" class="alert alert-danger">
+            Location must be set
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="emitGoBack()">Go back</button>
+
+    <button type="submit" class="btn btn-success" [disabled]="!editForm.valid">Save</button>
+</form>

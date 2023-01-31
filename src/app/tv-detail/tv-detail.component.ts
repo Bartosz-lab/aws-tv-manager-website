@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { Tv } from '../models/tv';
 
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
+import { Tv } from '../models/tv';
 import { TvService } from '../services/tv.service';
 
 @Component({
@@ -14,11 +14,13 @@ import { TvService } from '../services/tv.service';
 export class TvDetailComponent {
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private tvService: TvService,
     private location: Location
   ) {}
 
   @Input() tv?: Tv;
+  submitted = true;
 
   ngOnInit(): void {
     this.getTv();
@@ -30,7 +32,28 @@ export class TvDetailComponent {
       .subscribe(tv => this.tv = tv);
   }
 
+  onSaved(id: number): void {
+    if (id === this.tv?.id) {
+      this.getTv();
+    } else {
+      // Eror code
+    }
+    this.submitted = true;
+  }
+
   goBack(): void {
     this.location.back();
+  }
+
+  onDelete(): void {
+    if (this.tv) {
+      this.tvService.deleteTv(this.tv.id)
+        .subscribe(res => {
+          if (res) {
+            this.router.navigateByUrl('/tvs')
+          }
+        });
+    }
+    // Error Code
   }
 }

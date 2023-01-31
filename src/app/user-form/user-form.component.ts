@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
 
 import { User } from '../models/user';
@@ -14,7 +13,6 @@ import { UserService } from '../services/user.service';
 })
 export class UserFormComponent {
   constructor(
-    private router: Router,
     private userService: UserService,
     private fb: FormBuilder
   ) { }

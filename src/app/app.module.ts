@@ -15,6 +15,7 @@ import { LocationListComponent } from './location-list/location-list.component';
 import { LocationDetailComponent } from './location-detail/location-detail.component';
 import { LocationFormComponent } from './location-form/location-form.component';
 import { LocationAddComponent } from './location-add/location-add.component';
+import { TvFormComponent } from './tv-form/tv-form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LocationAddComponent } from './location-add/location-add.component';
     LocationListComponent,
     LocationDetailComponent,
     LocationFormComponent,
-    LocationAddComponent
+    LocationAddComponent,
+    TvFormComponent
   ],
   imports: [
     BrowserModule,
