@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-user-add',
-  templateUrl: './user-add.component.html',
-  styleUrls: ['./user-add.component.css']
+  selector: 'app-location-add',
+  templateUrl: './location-add.component.html',
+  styleUrls: ['./location-add.component.css']
 })
-export class UserAddComponent {
+export class LocationAddComponent {
   constructor(
     private router: Router,
     private location: Location,
@@ -15,7 +15,7 @@ export class UserAddComponent {
 
   onSaved(id: number): void {
     if (id >= 0) {
-      this.router.navigate(['/', 'user', id])
+      this.router.navigate(['/', 'location', id])
     } else {
       // error
     }
@@ -24,4 +24,5 @@ export class UserAddComponent {
   goBack(): void {
     this.location.back();
   }
+
 }
