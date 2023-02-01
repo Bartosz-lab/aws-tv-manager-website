@@ -1,6 +1,6 @@
 <div class="container" *ngIf="tv">
   <div [hidden]="submitted">
-      <app-tv-form [tv]="tv" (save)="onSaved($event)" (goback)="submitted=true"></app-tv-form>
+      <app-tv-form [tv]="TvViewToTv()" (save)="onSaved($event)" (goback)="submitted=true"></app-tv-form>
   </div>
   <div [hidden]="!submitted">
       <h2>Tv:</h2>
@@ -18,11 +18,11 @@
       </div>
       <div class="row">
           <div class="col-xs-3">Supervisor</div>
-          <div class="col-xs-9">{{ tv.supervisor }}</div>
+          <div class="col-xs-9">{{ tv.supervisor.id }} {{ tv.supervisor.name }} {{ tv.supervisor.surname }}</div>
       </div>
       <div class="row">
           <div class="col-xs-3">Location</div>
-          <div class="col-xs-9">{{ tv.location }}</div>
+          <div class="col-xs-9">{{ tv.location.id }} {{ tv.location.address }}</div>
       </div>
       <div class="row">
           <div class="col-xs-3">Avaiable</div>

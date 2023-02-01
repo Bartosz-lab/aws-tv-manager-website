@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Tv } from '../models/tv';
+import { Tv, TvView, TvViewToTv } from '../models/tv';
 import { TvService } from '../services/tv.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class TvDetailComponent {
     private location: Location
   ) {}
 
-  @Input() tv?: Tv;
+  @Input() tv?: TvView;
   submitted = true;
 
   ngOnInit(): void {
@@ -55,5 +55,11 @@ export class TvDetailComponent {
         });
     }
     // Error Code
+  }
+  TvViewToTv(): Tv | undefined {
+    if (this.tv) {
+      return TvViewToTv(this.tv);
+    }
+    return undefined;
   }
 }

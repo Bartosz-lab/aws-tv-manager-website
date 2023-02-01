@@ -1,13 +1,13 @@
-import { Tv } from '../models/tv';
+import { TvView } from '../models/tv';
 
-export const TVS: Tv[] = [
+export const TVS: TvView[] = [
     { 
         id: 1, 
         name: 'tv 1', 
         ip: '10.213.214.1',
         config: 'website',
-        supervisor: 5,
-        location: 5,
+        supervisor: { id: 1, name: 'Jan', surname: 'Niski', phone: '123456789', email: ''},
+        location: { id: 1, address: 'Wrocław'},
         avaiable: false, 
         lastSeen: ''
     }, { 
@@ -15,8 +15,8 @@ export const TVS: Tv[] = [
         name: 'tv 2', 
         ip: '10.213.214.2', 
         config: 'website',
-        supervisor: 5,
-        location: 5,
+        supervisor: { id: 1, name: 'Jan', surname: 'Niski', phone: '123456789', email: ''},
+        location: { id: 1, address: 'Wrocław'},
         avaiable: true, 
         lastSeen: ''
     }, { 
@@ -24,8 +24,8 @@ export const TVS: Tv[] = [
         name: 'tv 3', 
         ip: '10.213.214.3', 
         config: 'website',
-        supervisor: 5,
-        location: 5,
+        supervisor: { id: 1, name: 'Jan', surname: 'Niski', phone: '123456789', email: ''},
+        location: { id: 1, address: 'Wrocław'},
         avaiable: false, 
         lastSeen: ''
     }, { 
@@ -33,8 +33,8 @@ export const TVS: Tv[] = [
         name: 'tv 4', 
         ip: '10.213.214.4', 
         config: 'website',
-        supervisor: 5,
-        location: 5,
+        supervisor: { id: 1, name: 'Jan', surname: 'Niski', phone: '123456789', email: ''},
+        location: { id: 1, address: 'Wrocław'},
         avaiable: true, 
         lastSeen: ''
     }

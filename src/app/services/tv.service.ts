@@ -1,23 +1,31 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
-import { Tv } from '../models/tv';
+import { of } from 'rxjs';
+
+import { Tv, TvView } from '../models/tv';
 import { TVS } from '../mock/mock-tvs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TvService {
-
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getTvs(): Observable<Tv[]> {
-    return of(TVS);
+    let url = "https://gcigmzpists5xv2zuao4ljmqvy0srgzl.lambda-url.us-east-1.on.aws/";
+
+    return this.http.get<Tv[]>(url);
   }
 
-  getTv(id: number): Observable<Tv> {
-    const tv = TVS.find(h => h.id === id)!;
-    return of(tv);
+
+
+  getTv(id: number): Observable<TvView> {
+    let url = "https://gcigmzpists5xv2zuao4ljmqvy0srgzl.lambda-url.us-east-1.on.aws/";
+
+    return this.http.get<TvView>(url);
   }
 
   updateTv(tv: Tv): Observable<number> {
@@ -30,4 +38,9 @@ export class TvService {
   deleteTv(id: number): Observable<boolean> {
     return of(true);
   }
+}
+
+export interface Config {
+  result: string;
+  tvs: string;
 }
