@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { of } from 'rxjs';
 
 import { Tv, TvView } from '../models/tv';
-import { TVS } from '../mock/mock-tvs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +14,8 @@ export class TvService {
 
   url = 'https://llemr0veyj.execute-api.us-east-1.amazonaws.com/alpha';
 
-  getTvs(): Observable<Tv[]> {
-    let url = "https://llemr0veyj.execute-api.us-east-1.amazonaws.com/alpha/tvs";
-
-    return this.http.get<Tv[]>(url);
+  getTvs(): Observable<{statusCode: number; body: Tv[]}> {
+    return this.http.get<{statusCode: number; body: Tv[]}>(`${this.url}/tvs`);
   }
 
 

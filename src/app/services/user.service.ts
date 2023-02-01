@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import { of } from 'rxjs';
 
 import { User } from '../models/user';
 import { USERS } from '../mock/mock-users';
@@ -9,10 +12,12 @@ import { USERS } from '../mock/mock-users';
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<User[]> {
-    return of(USERS);
+  url = 'https://llemr0veyj.execute-api.us-east-1.amazonaws.com/alpha';
+
+  getUsers(): Observable<{statusCode: number; body: User[]}> {
+    return this.http.get<{statusCode: number; body: User[]}>(`${this.url}/employees`);
   }
 
   getUser(id: number): Observable<User> {

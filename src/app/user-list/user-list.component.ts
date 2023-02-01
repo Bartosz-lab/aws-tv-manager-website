@@ -16,7 +16,7 @@ export class UserListComponent {
 
   getUsers(): void {
     this.userService.getUsers()
-      .subscribe(users => this.users = users);
+      .subscribe(res => this.users = res.body);
   }
 
   users: User[] = [];

@@ -16,7 +16,7 @@ export class TvListComponent {
 
   getTvs(): void {
     this.tvService.getTvs()
-      .subscribe(tvs => this.tvs = tvs);
+      .subscribe(res => this.tvs = res.body);
   }
 
   tvs: Tv[] = [];
