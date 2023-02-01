@@ -15,7 +15,7 @@ export class TvService {
   constructor(private http: HttpClient) { }
 
   getTvs(): Observable<Tv[]> {
-    let url = "https://gcigmzpists5xv2zuao4ljmqvy0srgzl.lambda-url.us-east-1.on.aws/";
+    let url = "https://llemr0veyj.execute-api.us-east-1.amazonaws.com/alpha/tvs";
 
     return this.http.get<Tv[]>(url);
   }
@@ -23,7 +23,7 @@ export class TvService {
 
 
   getTv(id: number): Observable<TvView> {
-    let url = "https://gcigmzpists5xv2zuao4ljmqvy0srgzl.lambda-url.us-east-1.on.aws/";
+    let url = "https://llemr0veyj.execute-api.us-east-1.amazonaws.com/alpha/tvs";
 
     return this.http.get<TvView>(url);
   }
