@@ -29,7 +29,7 @@ export class TvDetailComponent {
   getTv(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.tvService.getTv(id)
-      .subscribe(tv => this.tv = tv);
+      .subscribe(res => this.tv = res.body);
   }
 
   onSaved(id: number): void {

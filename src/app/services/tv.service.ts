@@ -14,6 +14,8 @@ import { TVS } from '../mock/mock-tvs';
 export class TvService {
   constructor(private http: HttpClient) { }
 
+  url = 'https://llemr0veyj.execute-api.us-east-1.amazonaws.com/alpha';
+
   getTvs(): Observable<Tv[]> {
     let url = "https://llemr0veyj.execute-api.us-east-1.amazonaws.com/alpha/tvs";
 
@@ -22,10 +24,8 @@ export class TvService {
 
 
 
-  getTv(id: number): Observable<TvView> {
-    let url = "https://llemr0veyj.execute-api.us-east-1.amazonaws.com/alpha/tvs";
-
-    return this.http.get<TvView>(url);
+  getTv(id: number): Observable<{statusCode: number; body: TvView}> {
+    return this.http.get<{statusCode: number; body: TvView}>(`${this.url}/tv/${id}`);
   }
 
   updateTv(tv: Tv): Observable<number> {
