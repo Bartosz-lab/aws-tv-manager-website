@@ -17,6 +17,7 @@ export class LocationAddComponent {
     if (id >= 0) {
       this.router.navigate(['/', 'location', id])
     } else {
+      console.log("ERROR");
       // error
     }
   }

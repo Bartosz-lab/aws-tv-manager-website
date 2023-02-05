@@ -73,7 +73,6 @@ export class UserFormComponent {
 
     this.userService.updateUser(editedUser)
       .subscribe(res => {
-        console.log(res)
         this.emitSaved(res.id);
       });
   }

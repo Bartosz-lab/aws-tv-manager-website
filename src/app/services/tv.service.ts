@@ -38,12 +38,7 @@ export class TvService {
       `${this.url}/tv/${tv.id}`, tv);
   }
 
-  deleteTv(id: number): Observable<boolean> {
-    return of(true);
+  deleteTv(id: number): Observable<{statusCode: number; body: string}> {
+    return this.http.delete<{statusCode: number; body: string}>(`${this.url}/tv/${id}`);
   }
-}
-
-export interface Config {
-  result: string;
-  tvs: string;
 }

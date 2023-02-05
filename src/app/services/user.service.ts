@@ -22,9 +22,7 @@ export class UserService {
   }
 
   updateUser(user: User): Observable<{statusCode: number; id: number}> {
-    console.log(user);
     if(user.id == -1) {
-      console.log("Post");
       return this.http.post<{statusCode: number; id: number}>(`${this.url}/employee`, user);
     } else {
       return this.http.put<{statusCode: number; id: number}>(`${this.url}/employee/${user.id}`, user);

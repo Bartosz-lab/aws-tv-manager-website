@@ -52,8 +52,8 @@ export class LocationFormComponent {
     }
 
     this.locationService.updateLocation(editedLocation)
-      .subscribe(id => {
-        this.emitSaved(id);
+      .subscribe(res => {
+        this.emitSaved(res.id);
       });
   }
 }

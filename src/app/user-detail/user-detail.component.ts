@@ -34,8 +34,7 @@ export class UserDetailComponent {
   }
 
   onSaved(id: number): void {
-    console.log(id)
-    if (id === this.user?.id) {
+    if (id == this.user?.id) {
       this.getUser();
     } else {
       console.log("ERROR")

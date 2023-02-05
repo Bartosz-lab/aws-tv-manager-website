@@ -16,7 +16,7 @@ export class LocationListComponent {
 
   getLocations(): void {
     this.locationService.getLocations()
-      .subscribe(locations => this.locations = locations);
+      .subscribe(res => this.locations = res.body);
   }
 
   locations: Location[] = [];

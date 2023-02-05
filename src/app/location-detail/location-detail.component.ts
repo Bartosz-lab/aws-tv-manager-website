@@ -30,13 +30,14 @@ export class LocationDetailComponent {
   getLocation(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.locationService.getLocation(id)
-      .subscribe(user => this.loc = user);
+      .subscribe(res => this.loc = res.body);
   }
 
   onSaved(id: number): void {
-    if (id === this.loc?.id) {
+    if (id == this.loc?.id) {
       this.getLocation();
     } else {
+      console.log("ERROR")
       // Eror code
     }
     this.submitted = true;
@@ -51,7 +52,7 @@ export class LocationDetailComponent {
       this.locationService.deleteLocation(this.loc.id)
         .subscribe(res => {
           if (res) {
-            this.router.navigateByUrl('/users')
+            this.router.navigateByUrl('/locations')
           }
         });
     }
