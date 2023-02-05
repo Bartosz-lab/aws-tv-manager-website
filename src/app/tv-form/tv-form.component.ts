@@ -73,7 +73,7 @@ export class TvFormComponent {
       config: this.config?.value ?? '',
       supervisor: this.supervisor?.value ?? 0,
       location: this.location?.value ?? 0,
-      avaiable: this.tv?.avaiable ?? false,
+      notified: this.tv?.notified ?? false,
       lastSeen: this.tv?.lastSeen ?? '',
     }
 
