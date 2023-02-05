@@ -1,7 +1,7 @@
 <ul class="tv-list">
   <li *ngFor="let tv of tvs">
     <a routerLink="/tv/{{tv.id}}">
-      <span class="id" [ngClass]="tv.avaiable ? 'red' : 'green'">{{tv.id}}</span>
+      <span class="id" [ngClass]="tv.notified ? 'red' : 'green'">{{tv.id}}</span>
       <span class="name">{{tv.name}}</span>
       <span class="ip">{{tv.ip}}</span>
     </a>
