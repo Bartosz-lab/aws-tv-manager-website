@@ -8,7 +8,7 @@ export interface Tv {
     config: string;
     supervisor: number;
     location: number;
-    avaiable: boolean;
+    notified: boolean;
     lastSeen: string;
 }
 
@@ -19,7 +19,7 @@ export interface TvView {
     config: string;
     supervisor: User;
     location: Location;
-    avaiable: boolean;
+    notified: boolean;
     lastSeen: string;
 }
 
@@ -31,7 +31,7 @@ export function TvViewToTv(view: TvView): Tv {
         config: view.config,
         supervisor: view.supervisor.id ,
         location: view.location.id,
-        avaiable: view.avaiable,
+        notified: view.avaiable,
         lastSeen: view.lastSeen,
     }
     
