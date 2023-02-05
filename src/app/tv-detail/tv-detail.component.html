@@ -18,11 +18,19 @@
       </div>
       <div class="row">
           <div class="col-xs-3">Supervisor</div>
-          <div class="col-xs-9">{{ tv.supervisor.id }} {{ tv.supervisor.name }} {{ tv.supervisor.surname }}</div>
+          <div class="col-xs-9">
+            <a href="https://llemr0veyj.execute-api.us-east-1.amazonaws.com/alpha/employee/{{ tv.supervisor.id }}">
+                {{ tv.supervisor.name }} {{ tv.supervisor.surname }}
+            </a>
+          </div>
       </div>
       <div class="row">
           <div class="col-xs-3">Location</div>
-          <div class="col-xs-9">{{ tv.location.id }} {{ tv.location.address }}</div>
+          <div class="col-xs-9">
+            <a href="https://llemr0veyj.execute-api.us-east-1.amazonaws.com/alpha/employee/{{ tv.location.id }}">
+                {{ tv.location.address }}
+            </a>
+          </div>
       </div>
       <div class="row">
           <div class="col-xs-3">Notified</div>
