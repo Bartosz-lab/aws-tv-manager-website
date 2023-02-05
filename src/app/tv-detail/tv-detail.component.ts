@@ -33,9 +33,10 @@ export class TvDetailComponent {
   }
 
   onSaved(id: number): void {
-    if (id === this.tv?.id) {
+    if (id == this.tv?.id) {
       this.getTv();
     } else {
+      console.log("Error");
       // Eror code
     }
     this.submitted = true;

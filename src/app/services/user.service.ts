@@ -2,10 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { of } from 'rxjs';
-
 import { User } from '../models/user';
-import { USERS } from '../mock/mock-users';
 
 @Injectable({
   providedIn: 'root'
@@ -20,19 +17,21 @@ export class UserService {
     return this.http.get<{statusCode: number; body: User[]}>(`${this.url}/employees`);
   }
 
-  getUser(id: number): Observable<User> {
-    const user = USERS.find(h => h.id === id)!;
-    return of(user);
+  getUser(id: number): Observable<{statusCode: number; body: User}> {
+    return this.http.get<{statusCode: number; body: User}>(`${this.url}/employee/${id}`);
   }
 
-  updateUser(user: User): Observable<number> {
-    // if user id == -1 then add user
-    // else edit user
-
-    return of(user.id); // < 0 errors, > 0 user number
+  updateUser(user: User): Observable<{statusCode: number; id: number}> {
+    console.log(user);
+    if(user.id == -1) {
+      console.log("Post");
+      return this.http.post<{statusCode: number; id: number}>(`${this.url}/employee`, user);
+    } else {
+      return this.http.put<{statusCode: number; id: number}>(`${this.url}/employee/${user.id}`, user);
+    }
   }
 
-  deleteUser(id: number): Observable<boolean> {
-    return of(true);
+  deleteUser(id: number): Observable<{statusCode: number; body: string}> {
+    return this.http.delete<{statusCode: number; body: string}>(`${this.url}/employee/${id}`);
   }
 }

@@ -24,11 +24,18 @@ export class TvService {
     return this.http.get<{statusCode: number; body: TvView}>(`${this.url}/tv/${id}`);
   }
 
-  updateTv(tv: Tv): Observable<number> {
-    // if tv id == -1 then add tv
-    // else edit tv
+  updateTv(tv: Tv): Observable<{statusCode: number; id: number}> {
+    const body = {
+      id: tv.id,
+      name: tv.name,
+      ip: tv.ip,
+      config: tv.config,
+      supervisor: tv.supervisor,
+      location: tv.location
 
-    return of(tv.id); // < 0 errors, > 0 tv number
+    }
+    return this.http.put<{statusCode: number; id: number}>(
+      `${this.url}/tv/${tv.id}`, tv);
   }
 
   deleteTv(id: number): Observable<boolean> {

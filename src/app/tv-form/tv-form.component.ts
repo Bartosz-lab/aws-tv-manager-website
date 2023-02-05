@@ -78,8 +78,8 @@ export class TvFormComponent {
     }
 
     this.tvService.updateTv(editedTv)
-      .subscribe(id => {
-        this.emitSaved(id);
+      .subscribe(res => {
+        this.emitSaved(res.id);
       });
   }
 }

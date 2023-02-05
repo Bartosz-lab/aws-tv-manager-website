@@ -17,6 +17,7 @@ export class UserAddComponent {
     if (id >= 0) {
       this.router.navigate(['/', 'user', id])
     } else {
+      console.log("ERROR")
       // error
     }
   }

@@ -30,13 +30,15 @@ export class UserDetailComponent {
   getUser(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.userService.getUser(id)
-      .subscribe(user => this.user = user);
+      .subscribe(res => this.user = res.body);
   }
 
   onSaved(id: number): void {
+    console.log(id)
     if (id === this.user?.id) {
       this.getUser();
     } else {
+      console.log("ERROR")
       // Eror code
     }
     this.submitted = true;
