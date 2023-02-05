@@ -31,7 +31,7 @@ export function TvViewToTv(view: TvView): Tv {
         config: view.config,
         supervisor: view.supervisor.id ,
         location: view.location.id,
-        notified: view.available,
+        notified: view.notified,
         lastSeen: view.lastSeen,
     }
     
